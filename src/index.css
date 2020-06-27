@@ -27,12 +27,30 @@ code {
   display: flex;
   justify-content: center;
 }
+/* @media only screen and (max-width: 400px){
+  .MovieDetails{
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  .MovieDetails{
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-evenly;  
+  }
+} */
 
 .MovieDetails{
   padding: 20px 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly;  
 }
+
 
 .Details {
   display : flex; 

@@ -4,7 +4,7 @@ export default class ShowMovieDetails extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            click : this.props.onclickImg,
+            click : false,
             response : this.props.movieDet
         }
         this.onimgClick = this.onimgClick.bind(this)
@@ -22,10 +22,20 @@ export default class ShowMovieDetails extends Component {
         } else if (state.response.Title !== nextProps.movieDet.Title) {
             console.log("change in title", state.response.Title,nextProps.movieDet.Title)
             return {
-                click : nextProps.onclickImg,
+                click : false,
                 response : nextProps.movieDet
             }
         }
+    }
+
+    shouldComponentUpdate(nextProps,nextState) {
+        console.timeLog("should Component Update",nextProps,nextState)
+        if(this.state.response.Title === nextProps.movieDet.Title && this.state.click === nextState.click && this.props.featureArray.length === nextProps.featureArray.length ) {
+            // console.log(false)
+            return false
+        }
+            
+        return true
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -37,35 +47,38 @@ export default class ShowMovieDetails extends Component {
     }
 
     onimgClick = () => {
-        console.log(this.state.click)
+        console.log("click",this.state.click)
         this.setState({
             click : !this.state.click
         })
-        console.log(this.state.click)
+        console.log("click",this.state.click)
     }
     
     render() {
-        // console.log(this.props.movieDet.Title)
-        // console.log(this.props.movieDet.Poster)
         
-        const a = { pic_url : this.props.movieDet.Poster}
-        console.log(a.pic_url)
+        console.log(this.props.movieDet.Poster)
         return (
             <div className="MovieDetails">
 
                 <div className="poster">               
-                <img onClick={this.onimgClick} className="image" src={a.pic_url} alt="poster" />
+                <img onClick={this.onimgClick} className="image" src={this.props.movieDet.Poster} alt="poster" />
                 </div>
                 {this.state.click &&
                 <div className="Details">
-                <ul>
+                    <ul>
+                    {this.props.featureArray.map((arr,i) => {
+                        return <li key={i}><b>{arr} : </b><i>{this.props.movieDet[arr]}</i></li>
+                    } )}
+                    </ul>
+
+                {/* <ul>
                     <li><b>Title : </b><i>{this.props.movieDet.Title}</i></li>
                     <li><b>Year : </b><i>{this.props.movieDet.Year}</i></li>
                     <li><b>Genre : </b><i>{this.props.movieDet.Genre}</i></li>
                     <li><b>IMDB: </b><i>{this.props.movieDet.imdbRating}</i></li>
                     <li><b>Cast : </b><i>{this.props.movieDet.Actors}</i></li>
                     <li><b>Plot : </b><i>{this.props.movieDet.Plot}</i></li>
-                </ul>
+                </ul> */}
                 </div>
                 }
             </div>
