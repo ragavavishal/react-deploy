@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-deploy/static/css/main.d0be2776.chunk.css",
-    "main.js": "/react-deploy/static/js/main.2f145a53.chunk.js",
-    "main.js.map": "/react-deploy/static/js/main.2f145a53.chunk.js.map",
+    "main.css": "/react-deploy/static/css/main.830eb34c.chunk.css",
+    "main.js": "/react-deploy/static/js/main.57987511.chunk.js",
+    "main.js.map": "/react-deploy/static/js/main.57987511.chunk.js.map",
     "runtime-main.js": "/react-deploy/static/js/runtime-main.6b28c481.js",
     "runtime-main.js.map": "/react-deploy/static/js/runtime-main.6b28c481.js.map",
-    "static/js/2.aec102a5.chunk.js": "/react-deploy/static/js/2.aec102a5.chunk.js",
-    "static/js/2.aec102a5.chunk.js.map": "/react-deploy/static/js/2.aec102a5.chunk.js.map",
+    "static/js/2.99bb8d21.chunk.js": "/react-deploy/static/js/2.99bb8d21.chunk.js",
+    "static/js/2.99bb8d21.chunk.js.map": "/react-deploy/static/js/2.99bb8d21.chunk.js.map",
     "index.html": "/react-deploy/index.html",
-    "precache-manifest.065aab4fb30ab503288af3bd4d2c203a.js": "/react-deploy/precache-manifest.065aab4fb30ab503288af3bd4d2c203a.js",
+    "precache-manifest.242285d451a8515c68cf3deae84c687d.js": "/react-deploy/precache-manifest.242285d451a8515c68cf3deae84c687d.js",
     "service-worker.js": "/react-deploy/service-worker.js",
-    "static/css/main.d0be2776.chunk.css.map": "/react-deploy/static/css/main.d0be2776.chunk.css.map",
-    "static/js/2.aec102a5.chunk.js.LICENSE.txt": "/react-deploy/static/js/2.aec102a5.chunk.js.LICENSE.txt"
+    "static/css/main.830eb34c.chunk.css.map": "/react-deploy/static/css/main.830eb34c.chunk.css.map",
+    "static/js/2.99bb8d21.chunk.js.LICENSE.txt": "/react-deploy/static/js/2.99bb8d21.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6b28c481.js",
-    "static/js/2.aec102a5.chunk.js",
-    "static/css/main.d0be2776.chunk.css",
-    "static/js/main.2f145a53.chunk.js"
+    "static/js/2.99bb8d21.chunk.js",
+    "static/css/main.830eb34c.chunk.css",
+    "static/js/main.57987511.chunk.js"
   ]
 }

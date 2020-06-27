@@ -24,7 +24,7 @@ export default class Movie extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        const url = "http://www.omdbapi.com/?i=tt3896198&apikey=41425427&t="
+        const url = "https://www.omdbapi.com/?i=tt3896198&apikey=41425427&t="
         const movie = this.state.value
         console.log(url+movie)
         const a = await fetch(url+movie)
