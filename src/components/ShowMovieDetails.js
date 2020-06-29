@@ -68,13 +68,18 @@ export default class ShowMovieDetails extends Component {
     }
     
     render() {
+        let clickStatus = this.state.click
+        let imgStyle = {};
+        if (clickStatus) {
+            imgStyle.border= "2px solid dimgray"
+        }
         
         console.log(this.props.movieDet.Poster)
         return (
             <div className="MovieDetails">
 
                 <div className="poster">               
-                <img onClick={this.onimgClick} className="image" src={this.props.movieDet.Poster} alt="poster" />
+                <img onClick={this.onimgClick} style={imgStyle} className="image" src={this.props.movieDet.Poster} alt="poster" />
                 </div>
 
                 {this.state.click &&
