@@ -7,7 +7,8 @@ export default class ShowMovieDetails extends Component {
             click : false,
             response : this.props.movieDet
         }
-        this.onimgClick = this.onimgClick.bind(this)
+        this.onimgClick = this.onimgClick.bind(this);
+        this.movieFocus = React.createRef();
     }
 
     componentDidMount() {
@@ -18,6 +19,11 @@ export default class ShowMovieDetails extends Component {
         console.log("Component will receive props", nextProps,state);
         if(state.response.Title === nextProps.movieDet.Title) {
             console.log(false)
+            if(nextProps.featureArray.length < 1) {
+                return{
+                    click : false
+                }
+            }
             return null
         } else if (state.response.Title !== nextProps.movieDet.Title) {
             console.log("change in title", state.response.Title,nextProps.movieDet.Title)
@@ -48,9 +54,16 @@ export default class ShowMovieDetails extends Component {
 
     onimgClick = () => {
         console.log("click",this.state.click)
+        let a = [...this.props.featureArray]
+        console.log("featureArray length : ", a.length)
+        if (a.length > 0) { 
         this.setState({
             click : !this.state.click
         })
+        }
+        else {
+            alert("Select any of the CheckBox to view the content")
+        }
         console.log("click",this.state.click)
     }
     
@@ -63,13 +76,16 @@ export default class ShowMovieDetails extends Component {
                 <div className="poster">               
                 <img onClick={this.onimgClick} className="image" src={this.props.movieDet.Poster} alt="poster" />
                 </div>
+
                 {this.state.click &&
-                <div className="Details">
+                <div className="Details" >
                     <ul>
                     {this.props.featureArray.map((arr,i) => {
                         return <li key={i}><b>{arr} : </b><i>{this.props.movieDet[arr]}</i></li>
                     } )}
                     </ul>
+                </div>
+                }
 
                 {/* <ul>
                     <li><b>Title : </b><i>{this.props.movieDet.Title}</i></li>
@@ -79,8 +95,8 @@ export default class ShowMovieDetails extends Component {
                     <li><b>Cast : </b><i>{this.props.movieDet.Actors}</i></li>
                     <li><b>Plot : </b><i>{this.props.movieDet.Plot}</i></li>
                 </ul> */}
-                </div>
-                }
+                
+                
             </div>
         )
     }
