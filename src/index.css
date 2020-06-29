@@ -33,7 +33,6 @@ code {
   .MovieDetails{
     padding: 20px 10px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
   }
@@ -44,9 +43,7 @@ code {
   .MovieDetails{
     padding: 20px 10px;
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
+    justify-content: space-evenly;  
   }
 }
 

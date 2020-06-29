@@ -10,8 +10,10 @@ export default class Movie extends Component {
             status : false,
             response : {},
             comment : false,
-            checkarr : [],
-            checkBoxState: []
+            checkarr : ["Title","Year","Genre","imdbRating","Actors","Plot"],
+            checkBoxState: [],
+            checkBoxStatus: [true,true,true,true,true,true]
+            
             // checkarr : ["Title","Year","Genre","imdbRating","Actors","Plot"]
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -49,7 +51,6 @@ export default class Movie extends Component {
     }
 
     onType = (event) => {
-        event.preventDefault();
         // console.log(event.target.value)
         // console.log(this)
         this.setState({
@@ -57,8 +58,13 @@ export default class Movie extends Component {
         })
     }
 
-    checkBox = (event) => {
+    checkBox = (event,i) => {
+        console.log("i : ",i)
+        let stat = [...this.state.checkBoxStatus]
+        stat[i] = !stat[i]
         let a = [...this.state.checkarr]
+        // let stat = [...this.state.checkBoxStatus]
+        // stat[i] = !stat[i]
         let rend = false
         let count = 0
         console.log(a)
@@ -88,7 +94,9 @@ export default class Movie extends Component {
 
         if(rend === true){
             this.setState({
-                checkarr: a
+                checkarr: a,
+                checkBoxStatus: stat
+                // checkBoxStatus: stat
             })
         }
     }
@@ -115,17 +123,17 @@ export default class Movie extends Component {
                 </div>
 
                 <div className="checkboxes">
-                <input type="checkbox" id="Title" onChange={this.checkBox} name="box1" value="Title"/>
+                <input type="checkbox" id="Title" onChange={(e) => this.checkBox(e,0)} checked={this.state.checkBoxStatus[0]} name="box1" value="Title"/>
                 <label htmlFor="Title">Title</label>
-                <input type="checkbox" id="Year" onChange={this.checkBox} name="box1" value="Year"/>
+                <input type="checkbox" id="Year" onChange={(e) => this.checkBox(e,1)} checked={this.state.checkBoxStatus[1]} name="box1" value="Year"/>
                 <label htmlFor="Year">Year</label>
-                <input type="checkbox" id="Genre" onChange={this.checkBox} name="box1" value="Genre"/>
+                <input type="checkbox" id="Genre" onChange={(e) => this.checkBox(e,2)} checked={this.state.checkBoxStatus[2]} name="box1" value="Genre"/>
                 <label htmlFor="Genre">Genre</label>
-                <input type="checkbox" id="imdbRating" onChange={this.checkBox} name="box1" value="imdbRating"/>
+                <input type="checkbox" id="imdbRating" onChange={(e) => this.checkBox(e,3)} checked={this.state.checkBoxStatus[3]} name="box1" value="imdbRating"/>
                 <label htmlFor="imdbRating">IMDB</label>
-                <input type="checkbox" id="Actors" onChange={this.checkBox} name="box1" value="Actors"/>
+                <input type="checkbox" id="Actors" onChange={(e) => this.checkBox(e,4)} checked={this.state.checkBoxStatus[4]} name="box1" value="Actors"/>
                 <label htmlFor="Actors">Actors</label>
-                <input type="checkbox" id="Plot" onChange={this.checkBox} name="box1" value="Plot"/>
+                <input type="checkbox" id="Plot" onChange={(e) => this.checkBox(e,5)} checked={this.state.checkBoxStatus[5]} name="box1" value="Plot"/>
                 <label htmlFor="Plot">Plot</label>
                 </div>
 
